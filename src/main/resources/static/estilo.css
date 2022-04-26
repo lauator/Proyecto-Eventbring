@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dongle', sans-serif;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #5822a4;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.barra {
+    width: 100%;
+    height: 1000px;
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche2.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche2.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.barra > nav{
+    text-align: right;
+    padding: 10px 10px 0 0;
+    background-color: rgba(255, 255, 255, 0.892);
+    font-family: 'Dongle', sans-serif;
+    overflow: hidden;
+}
+
+.barra > nav > div{
+    text-align: left;
+    
+    font-family: 'Dosis', sans-serif;
+    font-size: 45px;
+    
+}
+
+.barra > nav > div > div > a{
+    text-align: right ;
+    color: black ;
+    font-weight: 300;
+    text-decoration: none;
+    border: 100px;
+    margin-right: 50px;
+    font-size: 30px;
+    float: right;
+    font-family: 'Dongle', sans-serif;
+}
+
+.barra > nav > div > div > a:hover{
+    text-decoration: underline;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/*--------------NOSOTROS-------------*/
+
+.eslogan{
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Dosis', sans-serif;
+}
+
+.eslogan span {
+  font-size: 120px;
+  font-weight: bold;
+  position: relative;
+  font-family: 'Dosis', sans-serif;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.eslogan span::before {
+  content: var(--l);
+  position: absolute;
+  transform: scale(1.1);
+  filter: blur(15px);
+}
+
+.eslogan span:hover {
+  filter: contrast(250%);
+}
+.eslogan span:nth-child(1) {
+  color: #e296f9;
+}
+
+.eslogan > h2{
+
+    color: rgb(253, 253, 253);
+}
+
+
+.contenedornosotros{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.imagen-nosotros{
+    width: 48%;
+    position: static;
+}
+
+.contenedor-nosotros .contenedor-texto{
+    width: 48%;
+}
+
+.contenedor-texto{
+   margin: 1em;
+   padding: 1em;
+   margin-top: 50px;
+}
+
+.contenedor-texto p{
+    padding: 0 0 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+    font-family: 'Dosis', sans-serif;
+}
+
+.logo{
+    margin-right: 8px;
+    height: 30px;
+}
+
+
+
+
+/*--------------FIESTAS-------------*/
+.fiestas{
+    margin-top: 10px;
+    background-color: #f2f2f2;
+    margin-bottom: 30px;
+}
+
+.galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.img-port{
+    width: 24%;
+    margin-bottom: 10px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1.5);
+}
+
+.img-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(275, 67%, 13%, 0.559);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 120px;
+    display: flex;
+    opacity: 70%;
+    justify-content: center;
+    position: fixed;
+}
+
+.hover-galeria p{
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    font-size: 20px;
+    text-align: center;
+}
+
+.img-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+
+
+
+/*--------------OPINIONES-------------*/
+
+.rowg-0{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rowg-0 .col-md-4{
+    background-color: #5822a49f;
+    display: flex;
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1.5);
+}
+
+
+.rowg-0 .col-md-4 img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: block;
+}
+
+
+
+
+
