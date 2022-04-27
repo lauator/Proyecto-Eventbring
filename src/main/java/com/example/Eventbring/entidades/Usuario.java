@@ -5,7 +5,10 @@
  */
 package com.example.Eventbring.entidades;
 
+import com.example.Eventbring.enums.Role;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
@@ -28,6 +31,8 @@ public class Usuario {
     private String ciudad; 
     private Integer telefono; 
     
+    @Enumerated(EnumType.STRING)
+    private Role role; 
     
     public String getId() {
         return id_usuario;
