@@ -36,19 +36,23 @@
                     <span style="--l: 'g';">g</span>
                 </div>
                 <div>
-                    <a href="menu">Contactanos</a>
-                    <a href="menu">Eventos disponibles</a>
+                    <a th:href="@{/consultas}">Consultas</a>                  
+                    <a th:href="@{/eventosdisponibles}">Eventos disponibles</a>                   
                     <a href="menu">Login</a>
                     <a href="menu"></a>
-                    <a href="menu">Sobre nosotros</a>
+                    <a th:href="@{/}">Inicio</a>
                 </div>
 
             </div>
 
+
         </nav>
         <section class="eslogan">
-            <span style="--l: 'Preparate para divertirte';">Preparate para divertirte</span>       
-            <h2>Busca tu evento ideal</h2>
+            <div class="frases">
+               <span style="--l: 'Preparate para divertirte';">Preparate para divertirte</span>       
+                <h2>Busca tu evento ideal</h2> 
+            </div>
+            
         </section>
         <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
                 style="height: 100%; width: 100%;">
@@ -75,77 +79,7 @@
             </div>
         </section>
 
-        <section class="fiestas">
-            <div class="contenedor">
-                <h2 class="titulo">Fiestas</h2>
-                <div class="galeria-port">
-                    <div class="img-port">
-                        <img src="imagenes/boliche6.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Fiesta de fin de año</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche1.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Despedida de solterxs</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche8.webp" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Día del amigo</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche3.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Carnaval</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche4.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Fiestas de cumpleaños</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche10.jpeg" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Egresados</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche9.png" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>DJ's en vivo</p>
-                        </div>
-                    </div>
-
-                    <div class="img-port">
-                        <img src="imagenes/boliche7.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="imagenes/strava.svg" alt="">
-                            <p>Aniversarios</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
+        
 
         <section class="contenedor opiniones">
             <h2 class="titulo">Experiencias Eventbring</h2>
@@ -179,7 +113,7 @@
             </div>
         </section>
 
-        <section class="sobre-servicio">
+        <!--<section class="sobre-servicio">
             <div class="contenedor">
                 <h2 class="titulo">¿Cómo funciona?</h2>
                 <div class="servicio-cont">
@@ -189,23 +123,24 @@
                 </div>
             </div>
 
-        </section>
+        </section>-->
 
     </main>
 
+<!----------------FOOTER------------------->
     <footer>
         <div class="contenedor-footer">
             <div class="content-foo">
                 <h4>Whats App</h4>
-                <p>+54 11012345</p>
+                <a href="">+54 11012345</a>
             </div>
             <div class="content-foo">
                 <h4>Facebook</h4>
-                <a href="https://www.facebook.com/"></a>
+                <a href="https://www.facebook.com/">www.facebook.com/</a>
             </div>
             <div class="content-foo">
                 <h4>Instagram</h4>
-                <a href="https://www.instagram.com/?hl=es-la"></a>
+                <a href="https://www.instagram.com/?hl=es-la">www.instagram.com/</a>
             </div>
         </div>
     </footer>
