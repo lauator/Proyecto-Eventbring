@@ -27,7 +27,8 @@ public class Usuario {
     private String clave; 
     private String ciudad; 
     private Integer telefono; 
-  
+    
+    
     public String getId() {
         return id_usuario;
     }
