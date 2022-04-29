@@ -30,11 +30,13 @@ public class Usuario {
     private String clave; 
     private String ciudad; 
 
+
     private Integer telefono; 
     
     @Enumerated(EnumType.STRING)
     private Role role; 
     
+
 
 
     public String getId() {

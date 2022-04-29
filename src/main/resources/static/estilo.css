@@ -99,12 +99,14 @@ body {
     transition: all 300ms ease-in-out;
 }
 
+/*
 .eslogan span::before {
     content: var(--l);
     position: absolute;
     transform: scale(1.1);
     filter: blur(15px);
 }
+*/
 
 .eslogan span:hover {
     filter: contrast(370%);
