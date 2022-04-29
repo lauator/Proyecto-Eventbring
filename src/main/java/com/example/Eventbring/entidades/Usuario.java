@@ -29,11 +29,16 @@ public class Usuario {
     private String email;
     private String clave; 
     private String ciudad; 
-    private Integer telefono;
+
+
+    private Integer telefono; 
     
     @Enumerated(EnumType.STRING)
-    private Role role;
-  
+    private Role role; 
+    
+
+
+
     public String getId() {
         return id_usuario;
     }

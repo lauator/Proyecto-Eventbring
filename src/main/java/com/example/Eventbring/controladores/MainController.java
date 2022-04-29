@@ -5,6 +5,8 @@
  */
 package com.example.Eventbring.controladores;
 
+import com.example.Eventbring.servicios.UsuarioServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("")
 public class MainController {
+
+     @Autowired
+    private UsuarioServicio us;
+
     
     @GetMapping("/")
     public String index(@RequestParam(required = false)String login, ModelMap model) {
@@ -40,6 +46,7 @@ public class MainController {
         return "consultas.html";
     }
     
+
     @GetMapping("/registro")
     public String registro() {
 
@@ -59,5 +66,5 @@ public class MainController {
     }
     
     
-    
+
 }
