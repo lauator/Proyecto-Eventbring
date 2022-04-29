@@ -8,8 +8,10 @@ package com.example.Eventbring.controladores;
 import com.example.Eventbring.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -24,7 +26,11 @@ public class MainController {
 
     
     @GetMapping("/")
-    public String index() {
+    public String index(@RequestParam(required = false)String login, ModelMap model) {
+        if (login!=null) {
+            model.put("exito","Logueado con exito");
+        }
+        
         return "proyect.html";
     }
     
@@ -39,6 +45,26 @@ public class MainController {
 
         return "consultas.html";
     }
+    
+
+    @GetMapping("/registro")
+    public String registro() {
+
+        return "registro.html";
+    }
+    
+    @GetMapping("/login")
+    public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
+        if (error != null) {
+            model.put("error", "Usuario o Contraseña incorrectos");
+        }
+        if (logout != null) {
+            model.put("logout","Desconectado correctamente");
+        }
+
+        return "login.html";
+    }
+    
     
 
 }

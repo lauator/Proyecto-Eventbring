@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -37,9 +37,9 @@
                 </div>
                 <div>
                     <a th:href="@{/consultas}">Consultas</a>                  
-                    <a th:href="@{/eventosdisponibles}">Eventos disponibles</a>                   
-                    <a href="menu">Login</a>
-                    <a href="menu"></a>
+                    <a th:href="@{/eventosdisponibles}">Eventos disponibles</a>
+                    <a th:href="@{/login}">Iniciar sesion</a>
+                    <a th:href="@{/registro}">Registrate</a>
                     <a th:href="@{/}">Inicio</a>
                 </div>
 
@@ -47,6 +47,9 @@
 
 
         </nav>
+        
+        <div class="alert alert-success w-25 d-flex justify-content-center" th:if="${exito != null}" th:text="${exito}" role="alert"></div>
+        
         <section class="eslogan">
             <div class="frases">
                <span style="--l: 'Preparate para divertirte';">Preparate para divertirte</span>       

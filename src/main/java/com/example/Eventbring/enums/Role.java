@@ -7,8 +7,10 @@ package com.example.Eventbring.enums;
 
 /**
  *
- * @author Irina
+
+ * @author lauta
  */
 public enum Role {
-    ADMIN,USER 
+    USER
+
 }

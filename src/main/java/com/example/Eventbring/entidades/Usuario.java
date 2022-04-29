@@ -5,7 +5,10 @@
  */
 package com.example.Eventbring.entidades;
 
+import com.example.Eventbring.enums.Role;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,15 +23,19 @@ public class Usuario {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id_usuario;
-    private String nombre_usuario;
+    private String username;
     private String nombre;
     private String apellido;
     private String email;
     private String clave; 
     private String ciudad; 
-    private Integer telefono; 
+
+    private Integer telefono;
     
-    
+    @Enumerated(EnumType.STRING)
+    private Role role;
+  
+
     public String getId() {
         return id_usuario;
     }
@@ -37,13 +44,15 @@ public class Usuario {
         this.id_usuario = id;
     }
 
-    public String getNombreusuario() {
-        return nombre_usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombreusuario(String nombreusuario) {
-        this.nombre_usuario = nombreusuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    
 
     public String getApellido() {
         return apellido;
@@ -92,5 +101,15 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+    
+    
     
 }
