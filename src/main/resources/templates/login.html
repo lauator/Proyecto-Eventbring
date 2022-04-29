@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="imagenes/strava.svg" type="image/x-icon">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleslogin.css">
+    <title>Login</title>
+
+
+</head>
+
+<body>
+
+    <!--------------------BARRA--------------->
+    <header class="barra">
+        <nav>
+            <div>
+                <div>
+                    <img src="imagenes/strava.svg" alt="" width="45" height="39" class="d-inline-block align-text-top">
+                    <span style="--l: 'E';">E</span>
+                    <span style="--l: 'v';">v</span>
+                    <span style="--l: 'e';">e</span>
+                    <span style="--l: 'n';">n</span>
+                    <span style="--l: 't';">t</span>
+                    <span style="--l: 'b';">b</span>
+                    <span style="--l: 'r';">r</span>
+                    <span style="--l: 'i';">i</span>
+                    <span style="--l: 'n';">n</span>
+                    <span style="--l: 'g';">g</span>
+                </div>
+                <div>
+                    <a th:href="@{/consultas}">Consultas</a>                  
+                    <a th:href="@{/eventosdisponibles}">Eventos disponibles</a>
+                    <a th:href="@{/login}">Iniciar sesion</a>
+                    <a th:href="@{/registro}">Registrate</a>
+                    <a th:href="@{/}">Inicio</a>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-------------------LOGIN--------------->
+        <div class="container">
+
+            <div class="iniciar">
+                <img class="candado" src="../imagenes/candado.png" alt="candado">
+                <p class="iniciar-sesion">Iniciar Sesión</p>    
+            </div>
+           
+            <form class="login-email" th:action="@{/logincheck}" method="POST">
+
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Usuario">
+                </div>
+                <div class="input-group">
+                    <input type="password" name="clave" placeholder="Contraseña">
+                </div>
+                
+                <div class="input-group">
+                    <button type="submit" class="boton-ingresar">Ingresar</button>
+                </div>
+
+                <div class="input-group">
+                    <a class="bcontraseña" href="#">Olvidaste tu contraseña?</a>
+                    
+                    
+                    <a class="bregistro" href="registro.html">Registrate</a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </header>
+
+</body>}
+
+</html>
