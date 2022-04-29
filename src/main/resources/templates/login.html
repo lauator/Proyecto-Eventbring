@@ -55,6 +55,21 @@
 
         <!-------------------LOGIN--------------->
         <div class="container">
+            
+            
+            <div th:if="${error}!=null" class="card text-white bg-danger mb-3" >
+                <div class="card-body">
+                    <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+            <div th:if="${logout}!=null" class="card text-white bg-success mb-3" >
+                <div class="card-body">
+                    <p class="card-text" th:text="${logout}"></p>
+                </div>
+            </div>
+            
+            
 
             <div class="iniciar">
                 <img class="candado" src="../imagenes/candado.png" alt="candado">
