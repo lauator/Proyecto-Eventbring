@@ -46,9 +46,9 @@
                     
 
                     <a th:href="@{/consultas}">Consultas</a>                  
-                    <a th:href="@{/eventosdisponibles}">Eventos disponibles</a>
-                    <a th:href="@{/login}">Iniciar sesion</a>
-                    <a th:href="@{/registro}">Registrate</a>
+                    <a th:href="@{/eventosdisponibles}" sec:authorize="isAuthenticated()">Eventos disponibles</a>
+                    <a th:href="@{/login}" sec:authorize="!hasAnyRole('USER')">Iniciar sesion</a>
+                    <a th:href="@{/registro}" sec:authorize="!hasAnyRole('USER')">Registrate</a>
                     <a th:href="@{/}">Inicio</a>
 
                 </div>
@@ -82,7 +82,7 @@
            
            
 
-            <form class="login-email" th:action="@{/logincheck}" method="POST">
+            <form th:action="@{/logincheck}" method="POST" class="login-email" >
 
                 <div class="input-group">
                     <input type="text" name="username" placeholder="Usuario">
