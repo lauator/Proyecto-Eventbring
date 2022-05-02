@@ -49,6 +49,7 @@ public class UsuarioServicio implements UserDetailsService {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();     
         usuario.setClave(encoder.encode(clave));
         
+        
         usuario.setCiudad(ciudad);
         usuario.setTelefono(telefono);
         
