@@ -36,15 +36,15 @@ public class UsuarioServicio implements UserDetailsService {
     private UsuarioRepositorio usuarioRepositorio; 
     
     @Transactional
-    public Usuario registrar(String username, String nombre, String apellido, String mail, String clave, String ciudad, Integer telefono) throws ErrorServicio {
-        validar(username, nombre, apellido, mail, clave, ciudad, telefono);
+    public Usuario registrar(String username, String nombre, String apellido, String email, String clave, String ciudad, Integer telefono) throws ErrorServicio {
+        validar(username, nombre, apellido, email, clave, ciudad, telefono);
 
         Usuario usuario = new Usuario();
 
         usuario.setNombre(nombre);
         usuario.setUsername(username);
         usuario.setApellido(apellido);
-        usuario.setMail(mail);
+        usuario.setMail(email);
         
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();     
         usuario.setClave(encoder.encode(clave));
@@ -58,8 +58,8 @@ public class UsuarioServicio implements UserDetailsService {
     }
 
     @Transactional
-    public Usuario modificar(String id, String username, String nombre, String apellido, String mail, String clave, String ciudad, Integer telefono) throws ErrorServicio {
-        validar(username, nombre, apellido, mail, clave, ciudad, telefono);
+    public Usuario modificar(String id, String username, String nombre, String apellido, String email, String clave, String ciudad, Integer telefono) throws ErrorServicio {
+        validar(username, nombre, apellido, email, clave, ciudad, telefono);
 
         Usuario usuario = usuarioRepositorio.getById(id);
         
@@ -70,7 +70,7 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setNombre(nombre);
         usuario.setUsername(username);
         usuario.setApellido(apellido);
-        usuario.setMail(mail);
+        usuario.setMail(email);
         
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         
@@ -109,7 +109,7 @@ public class UsuarioServicio implements UserDetailsService {
     
     
 
-    public void validar(String username, String nombre, String apellido, String mail, String clave, String ciudad, Integer telefono) throws ErrorServicio {
+    public void validar(String username, String nombre, String apellido, String email, String clave, String ciudad, Integer telefono) throws ErrorServicio {
         if (username.isEmpty() || username == null) {
             throw new ErrorServicio("El usuario no puede estar vacio");
         }
@@ -126,11 +126,11 @@ public class UsuarioServicio implements UserDetailsService {
             throw new ErrorServicio("El apellido no puede estar vacio");
         }
         
-        if (mail.isEmpty() || mail == null) {
+        if (email.isEmpty() || email == null) {
             throw new ErrorServicio("El mail no puede estar vacio");
         }
         
-        if (usuarioRepositorio.buscarPorEmail(mail)!= null) {
+        if (usuarioRepositorio.buscarPorEmail(email)!= null) {
             throw new ErrorServicio("Ya existe un usuario con ese email");
         }
         
