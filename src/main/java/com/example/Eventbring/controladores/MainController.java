@@ -54,6 +54,12 @@ public class MainController {
         return "registro.html";
     }
     
+    @GetMapping("/crearevento")
+    public String crearevento() {
+
+        return "cargareventos.html";
+    }
+    
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
         if (error != null) {
