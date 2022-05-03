@@ -24,23 +24,23 @@ public class LocalServicio {
     private LocalRepositorio localRepositorio; 
     
     @Transactional
-    public Local registrar(String direccion, Integer telefono, Integer cupo, Date horario) throws ErrorServicio {
-        validar(direccion, telefono, cupo, horario);
+    public Local registrar(String direccion, Integer telefono, Integer cupo) throws ErrorServicio {
+        validar(direccion, telefono, cupo);
 
         Local local = new Local();
 
         local.setDireccion(direccion);
         local.setTelefono(telefono);
         local.setCupo(cupo);
-        local.setHorario(horario);
+        
         
 
         return localRepositorio.save(local);
     }
 
     @Transactional
-    public Local modificar(String id, String direccion, Integer telefono, Integer cupo, Date horario) throws ErrorServicio {
-        validar(direccion, telefono, cupo, horario);
+    public Local modificar(String id, String direccion, Integer telefono, Integer cupo) throws ErrorServicio {
+        validar(direccion, telefono, cupo);
 
 
         Local local = localRepositorio.getById(id);
@@ -48,7 +48,7 @@ public class LocalServicio {
         local.setDireccion(direccion);
         local.setTelefono(telefono);
         local.setCupo(cupo);
-        local.setHorario(horario);
+        
         
 
         return localRepositorio.save(local);
@@ -74,7 +74,7 @@ public class LocalServicio {
         return localRepositorio.findAll();
     }
 
-    public void validar(String direccion, Integer telefono, Integer cupo, Date horario) throws ErrorServicio {
+    public void validar(String direccion, Integer telefono, Integer cupo) throws ErrorServicio {
         if (direccion.isEmpty() || direccion == null) {
             throw new ErrorServicio("La direccion no puede estar vacia");
         }
@@ -95,9 +95,7 @@ public class LocalServicio {
             throw new ErrorServicio("El cupo no puede ser menor a 0");
         }
         
-        if (horario == null) {
-            throw new ErrorServicio("El horario no puede estar vacio");
-        }
+        
         
         
     }

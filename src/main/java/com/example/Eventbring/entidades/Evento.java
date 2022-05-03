@@ -38,6 +38,7 @@ public class Evento{
     @OneToOne
     private Local local;
     
+     
 
     public String getId_evento() {
         return id_evento;
