@@ -6,6 +6,7 @@
 package com.example.Eventbring.controladores;
 
 import com.example.Eventbring.servicios.UsuarioServicio;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -56,6 +57,7 @@ public class MainController {
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
         if (error != null) {
+            
             model.put("error", "Usuario o Contraseña incorrectos");
         }
         if (logout != null) {
@@ -64,6 +66,8 @@ public class MainController {
 
         return "login.html";
     }
+    
+    
     
     
 

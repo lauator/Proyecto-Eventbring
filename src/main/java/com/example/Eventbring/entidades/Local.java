@@ -24,7 +24,7 @@ public class Local {
     private String direccion; 
     private Integer telefono; 
     private Integer cupo;
-    private Date horario;
+    
     
 
     public Local() {
@@ -64,13 +64,7 @@ public class Local {
     
     
 
-    public Date getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Date horario) {
-        this.horario = horario;
-    }
+    
     
     
 
