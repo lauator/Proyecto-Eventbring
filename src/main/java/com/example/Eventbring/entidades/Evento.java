@@ -30,13 +30,14 @@ public class Evento{
     private String id_evento;
     private String nombre;
     private Date fecha_hora;
-    private Integer cantParticipantes;
+    private Integer cupo;
+    private String tipo_evento;
     
-    @OneToOne
-    private Usuario anfitrion;
     
-    @OneToOne
-    private Local local;
+    private String anfitrion;
+    
+    
+    private String direccion;
     
      
 
@@ -64,29 +65,47 @@ public class Evento{
         this.fecha_hora = fecha_hora;
     }
 
-    public Integer getCantParticipantes() {
-        return cantParticipantes;
+  
+
+    
+
+    public Integer getCupo() {
+        return cupo;
     }
 
-    public void setCantParticipantes(Integer cantParticipantes) {
-        this.cantParticipantes = cantParticipantes;
+    public void setCupo(Integer cupo) {
+        this.cupo = cupo;
     }
 
-    public Usuario getAnfitrion() {
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getAnfitrion() {
         return anfitrion;
     }
 
-    public void setAnfitrion(Usuario anfitrion) {
+    public void setAnfitrion(String anfitrion) {
         this.anfitrion = anfitrion;
     }
 
-    public Local getLocal() {
-        return local;
+    public String getTipo_evento() {
+        return tipo_evento;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
+    public void setTipo_evento(String tipo_evento) {
+        this.tipo_evento = tipo_evento;
     }
+
+}
+
+    
+
+    
     
      
     
@@ -98,4 +117,4 @@ public class Evento{
     
 
 
-}
+
