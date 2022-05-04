@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
+    
+    String usuarioregistrado;
+            
     @Autowired
     private UsuarioServicio us; 
     
@@ -32,10 +35,17 @@ public class UsuarioController {
     @PostMapping("/registro")
     public String guardarUsuario (@RequestParam String username,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String email, @RequestParam String clave , @RequestParam String ciudad , @RequestParam Integer telefono  ){
        try {
-           Usuario u = us.registrar(username, nombre, apellido, email, clave, ciudad, telefono); 
+           Usuario u = us.registrar(username, nombre, apellido, email, clave, ciudad, telefono);
+           usuarioregistrado = username;
        } catch (Exception e) {
            System.out.println(e.getMessage());
        }
        return "redirect:/login"; 
     }
+
+    public String getUsuarioregistrado() {
+        return usuarioregistrado;
+    }
+    
+    
 }

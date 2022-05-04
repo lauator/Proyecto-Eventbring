@@ -54,8 +54,8 @@ public class MainController {
         return "registro.html";
     }
     
-    @GetMapping("/crearevento")
-    public String crearevento() {
+    @GetMapping("/cargareventos")
+    public String cargareventos() {
 
         return "cargareventos.html";
     }
