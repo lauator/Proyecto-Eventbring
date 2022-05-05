@@ -108,11 +108,13 @@ public class EventoServicio extends HttpServlet {
     public Evento getById(String id) {
         return eventoRepositorio.getById(id);
     }
+    
 
     @Transactional(readOnly = true)
     public List<Evento> listarTodos() {
         return eventoRepositorio.findAll();
     }
+    
 
     public void validar(String nombre, Date fecha_hora,  Integer cupo, String direccion, String tipo_evento) throws ErrorServicio {
 

@@ -41,10 +41,9 @@
                     <span style="--l: 'g';">g</span>
                 </div>
                 <div>
-                    <a th:href="@{/logout}" sec:authorize="isAuthenticated()">Cerrar sesion</a>
-                    <a th:href="@{/consultas}">Consultas</a>                  
-                    <a th:href="@{/eventosdisponibles}">Eventos disponibles</a> 
-                    <a th:href="@{/cargareventos}" sec:authorize="isAuthenticated()">Crear evento</a>
+                    <a th:href="@{/logout}" sec:authorize="isAuthenticated()">Cerrar sesion</a>                  
+                    <a th:href="@{/miperfil}">Mi perfil</a> 
+                    <a th:href="@{/listaeventos}" sec:authorize="isAuthenticated()">Visualizar eventos</a>
                     <a th:href="@{/}">Inicio</a>
                 </div>
 

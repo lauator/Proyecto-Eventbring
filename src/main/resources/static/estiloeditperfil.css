@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dongle', sans-serif;
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche9.png);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche9.png);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #2d0f57;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: overline;
+}
+
+
+/*-----------------BARRA---------------*/
+.barra {
+    width: 100%;
+    height: 1000px;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.barra > nav{
+    text-align: right;
+    padding: 10px 10px 0 0;
+    background-color: rgba(255, 255, 255, 0.892);
+    font-family: 'Dongle', sans-serif;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.barra > nav > div{
+    text-align: left;
+    font-family: 'Dosis', sans-serif;
+    font-size: 45px;
+}
+
+.barra > nav > div > div > a{
+    text-align: right ;
+    color: black ;
+    font-weight: 300;
+    text-decoration: none;
+    border: 100px;
+    margin-right: 50px;
+    font-size: 30px;
+    float: right;
+    font-family: 'Dongle', sans-serif;
+}
+
+.barra > nav > div > div > a:hover{
+    text-decoration: underline;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/*--------------CAMBIAR PERFIL-------------*/
+.container {
+    width: 80%;
+    background: #2d0f57e9;
+    border-radius: 30px;
+    padding: 3% 4%;
+    margin: 5%;
+    margin-left: 10%;
+    margin-top: 1%;
+    margin-bottom: 90%;
+    border-spacing: 4rem;
+}
+
+.container .gif {
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height:  15%;
+    margin-left: 42%;
+    margin-top: 0px;
+    margin-bottom: 1%;
+}
+
+.container .c-evento {
+    font-family: 'Libre Bodoni', serif;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 2.2rem;
+    text-align: center;
+    display: block;
+    text-transform: capitalize;
+    margin: auto;
+}
+
+.container .cargar-datos .text-ev {
+    padding: 0% 0% 4%;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 1rem;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.container .cargar-datos .columnas{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.container .cargar-datos .izquierda{
+    width: 46%;
+    height: 200%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.container .cargar-datos .derecha{
+    width: 46%;
+    height: 200%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.container .cargar-datos .text-datos {
+    padding: 1.5% 0%;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 1rem;
+    text-align: left;
+    display: block;
+    margin: auto;
+}
+
+.container .input-group input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e7e7e7;
+    padding: 15px 20px;
+    font-size: medium;
+    border-radius: 30px;
+    background: #7f5bb1dc;
+    outline: none;
+}
+
+
+
+/*--------------BOTON-------------*/
+.container .input-group .boton {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin: 6% 0% 4% 0%;
+    text-align: center;
+    border: none;
+    background: #a29bfe;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: .3s;
+    text-transform: uppercase;
+}
+
+.container .input-group .boton:hover{
+    background: #7f7ac9;
+}
+
+.container .input-group .boton:active {
+    background: #f8fc31;
+}
+
+
+
+
+
+
+
+
+
+/*--------------FOOTER-------------*/
+.contenedor-footer {
+    display: flex;
+    width: 100%;
+    height: 250px;
+   
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: antiquewhite;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+    justify-content: space-evenly;
+}
+
+.content-foo {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-foo svg{
+    color: white;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 30;
+    height: 30;
+}
+
+.content-foo h3 {
+    border-bottom: 3px solid black;
+    padding-bottom: 9px;
+    margin-bottom: 30px;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.content-foo a {
+    text-decoration: none;
+    color: rgb(235, 215, 215);
+    font-size: 20px;
+}
+
+.content-foo:hover{
+    color: #ebd7d7;
+    transform: scale(1.20);
+    line-height: 1px;
+}
+
+.content-foo a:hover{
+    color: #ebd7d7;
+    text-decoration: underline;
+    line-height: 1px;
+}
