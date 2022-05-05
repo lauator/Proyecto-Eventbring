@@ -5,6 +5,8 @@
  */
 package com.example.Eventbring.controladores;
 
+import com.example.Eventbring.entidades.Evento;
+import com.example.Eventbring.servicios.EventoServicio;
 import com.example.Eventbring.servicios.UsuarioServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class MainController {
 
      @Autowired
     private UsuarioServicio us;
+     
+     @Autowired
+    private EventoServicio es;
 
     
     @GetMapping("/")
@@ -35,18 +40,12 @@ public class MainController {
         return "proyect.html";
     }
     
-    @GetMapping("/eventosdisponibles")
-    public String eventosDisponibles() {
+    @GetMapping("/miperfil")
+    public String miperfil() {
 
-        return "eventosdisponibles.html";
+        return "miperfil.html";
     }
-    
-    @GetMapping("/consultas")
-    public String consultas() {
-
-        return "consultas.html";
-    }
-    
+      
 
     @GetMapping("/registro")
     public String registro() {
@@ -59,6 +58,26 @@ public class MainController {
 
         return "cargareventos.html";
     }
+    
+    @GetMapping("/listaeventos")
+    public String lista(ModelMap modelo) {
+
+        List<Evento> eventoLista = es.listarTodos();
+
+        modelo.addAttribute("eventos", eventoLista);
+
+        return "listaeventos.html";
+    }
+    
+    @GetMapping("/editperfil")
+    public String editperfil() {
+
+        return "editperfil.html";
+    }
+    
+    
+    
+    
     
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {

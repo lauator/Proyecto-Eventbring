@@ -25,9 +25,17 @@ body {
     text-decoration: overline;
 }
 
+
+/*-----------------BARRA---------------*/
 .barra {
     width: 100%;
     height: 1000px;
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche9.png);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche9.png);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -65,20 +73,86 @@ body {
     text-decoration: underline;
 }
 
-video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .wave{
     position: absolute;
     bottom: 0;
     width: 100%;
 }
+
+/*--------------VENTANA-------------*/
+.container {
+    margin-top: 3%;
+    width: 20%;
+    background: #1c053ee2;
+    border-radius: 30px;
+    padding: 10% 20%;
+}
+
+.container .ventana {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .ventana h2 {
+    text-align: center;
+    color: aliceblue;
+    margin-bottom: 7%;
+    position: absolute;
+}
+
+.container .ventana img {
+    width: 20%;
+    display: flex;
+    opacity: 60%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+}
+
+.container .ventana .botones{
+    margin-top: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    opacity: 80%;
+    width: 100%;
+    height: 100%;
+}
+
+.container .ventana .botones .boto {
+    text-decoration: none;
+    width: 30%;
+    height: 100%;
+    padding: 15px 60px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+    border: none;
+    background: #a29bfe;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: .3s ease all;
+    z-index: 1;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container .ventana .botones .boto:hover {
+    background: #7f7ac9;
+    transform: scale(1.1);
+}
+
+.container .ventana .botones .boto:active {
+    background: #f8fc31;
+}
+
+
+
 
 
 
@@ -105,7 +179,7 @@ video{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1.5);
 }
 
-.img-port > img{
+.img-port > a > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -134,13 +208,19 @@ video{
     position: fixed;
 }
 
-.hover-galeria p{
+.hover-galeria a{
     color: antiquewhite;
     display: flex;
     justify-content: center;
     position: fixed;
     font-size: 20px;
     text-align: center;
+    text-decoration: none;
+}
+
+.hover-galeria a:hover{
+    color: antiquewhite;
+    text-decoration: underline;
 }
 
 .img-port:hover .hover-galeria{
@@ -149,10 +229,105 @@ video{
 
 
 
+/*--------------AGRANDAR-GALERIA-------------*/
+.img-port .modal{
+    display: none;
+}
 
+.img-port .modal:target{
+    display: block;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.52);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
+.img-port .modal h3{
+    font-size: 30px;
+    text-align: center;
+    color: antiquewhite;
+    margin: 15px;
+}
 
+.img-port .agrandar{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
 
+.agrandar a{
+    color: antiquewhite;
+    font-size: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0 10px;
+
+}
+
+.agrandar .flecha{
+    display: block;
+    background-color: antiquewhite;
+    width: 50px;
+    height: 50px;
+    margin: 15px ;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+    color: black;
+    border-radius: 50%;
+    line-height: 25px;
+    justify-content: center;
+    transition: all 300ms;
+    position: relative;
+}
+
+.agrandar .flecha:hover{
+    color: #2d0f57;
+    transform: scale(1.40);
+}
+
+.agrandar a:nth-child(2){
+    margin: 0;
+    height: 100%;
+}
+
+.agrandar img{
+    width: 650px;
+    height: 435px;
+    max-width: 100%;
+    border: 7px solid antiquewhite;
+    box-sizing: border-box;
+}
+
+.cerrar{
+    display: block;
+    background-color: antiquewhite;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    font-size: 45px;
+    padding: 5px;
+    color: black;
+    border-radius: 50%;
+    line-height: 35px;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms;
+    position: relative;
+}
+
+.cerrar:hover{
+    color: #2d0f57;
+    transform: scale(1.40);
+}
 
 /*--------------CERCANOS-------------*/
 .contenedor-cerca{
@@ -176,31 +351,6 @@ video{
     position: static;
 }
 
-
-
-/*.contenedor-cerca .contenedor-texto {
-    width: 48%;
-}
-
-.contenedor-texto {
-    margin: 1em;
-    padding: 1em;
-    margin-top: 50px;
-}
-
-.contenedor-texto p {
-    padding: 0 0 30px 15px;
-    font-weight: 300;
-    text-align: justify;
-    font-family: 'Dosis', sans-serif;
-}
-
-.logo {
-    margin-right: 8px;
-    height: 30px;
-}*/
-
- 
 
 
 
@@ -237,14 +387,36 @@ video{
     align-items: center;
 }
 
-.content-foo h4 {
+.content-foo svg{
+    color: white;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 30;
+    height: 30;
+}
+
+.content-foo h3 {
     border-bottom: 3px solid black;
     padding-bottom: 9px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-family: 'Arial Narrow', sans-serif;
 }
 
 .content-foo a {
     text-decoration: none;
     color: rgb(235, 215, 215);
+    font-size: 20px;
+}
+
+.content-foo:hover{
+    color: #ebd7d7;
+    transform: scale(1.20);
+    line-height: 1px;
+}
+
+.content-foo a:hover{
+    color: #ebd7d7;
+    text-decoration: underline;
+    line-height: 1px;
 }

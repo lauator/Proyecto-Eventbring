@@ -45,8 +45,8 @@
 
                     
 
-                    <a th:href="@{/consultas}">Consultas</a>                  
-                    <a th:href="@{/eventosdisponibles}" sec:authorize="isAuthenticated()">Eventos disponibles</a>
+                                     
+                    <a th:href="@{/miperfil}" sec:authorize="isAuthenticated()">Mi perfil</a>
                     <a th:href="@{/login}" sec:authorize="!hasAnyRole('USER')">Iniciar sesion</a>
                     <a th:href="@{/registro}" sec:authorize="!hasAnyRole('USER')">Registrate</a>
                     <a th:href="@{/}">Inicio</a>
