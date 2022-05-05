@@ -29,6 +29,8 @@ public class Evento{
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id_evento;
     private String nombre;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_hora;
     private Integer cupo;
     private String tipo_evento;
