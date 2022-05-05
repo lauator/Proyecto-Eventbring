@@ -31,6 +31,8 @@ public class EditController {
     @Autowired
     private EventoServicio es;
     
+    
+    
     @GetMapping("/modificar/{id}") 
     public String modificar(@PathVariable String id, ModelMap modelo) {
 
