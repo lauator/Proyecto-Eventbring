@@ -8,21 +8,19 @@ package com.example.Eventbring.servicios;
 import com.example.Eventbring.controladores.UsuarioController;
 import com.example.Eventbring.entidades.Evento;
 
-import com.example.Eventbring.entidades.Usuario;
+
 import com.example.Eventbring.errores.ErrorServicio;
 import com.example.Eventbring.repositorios.EventoRepositorio;
 
 import com.example.Eventbring.repositorios.UsuarioRepositorio;
-import static com.fasterxml.jackson.databind.type.LogicalType.DateTime;
-
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.format.DateTimeFormatter;
+
 
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -42,7 +40,7 @@ public class EventoServicio extends HttpServlet {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
-    private UsuarioController username = new UsuarioController();
+    
 
     @Transactional
     public Evento registrar(String nombre, Date fecha_hora, Integer cupo, String direccion, String tipo_evento) throws ErrorServicio {
@@ -51,21 +49,27 @@ public class EventoServicio extends HttpServlet {
         
         Evento evento = new Evento();
         
+        
+        
+        
 
 
+        
         evento.setFecha_hora(fecha_hora);
 
          
         
         evento.setNombre(nombre);
 
-        //Usuario u = (Usuario) session.getAttribute("usuariosession");
+        
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails userDetails = null;
         if (principal instanceof UserDetails) {
             userDetails = (UserDetails) principal;
         }
         String userName = userDetails.getUsername();
+        
+        
 
         evento.setAnfitrion(userName);
 
@@ -84,12 +88,12 @@ public class EventoServicio extends HttpServlet {
 
         Evento evento = eventoRepositorio.getById(id);
 
-        //evento.setFecha_hora(fecha);
-        evento.setNombre(nombre);
-
-        evento.setAnfitrion(username.getUsuarioregistrado());
+        evento.setFecha_hora(fecha);
+        evento.setNombre(nombre);     
 
         evento.setCupo(cupo);
+        
+        evento.setTipo_evento(tipo_evento);
 
         evento.setDireccion(direccion);
 
@@ -114,6 +118,22 @@ public class EventoServicio extends HttpServlet {
     public List<Evento> listarTodos() {
         return eventoRepositorio.findAll();
     }
+    
+    
+    @Transactional
+    public void reducirCupo(String id) throws ErrorServicio {
+
+        Evento evento = eventoRepositorio.getById(id);
+
+        if(evento.getCupo() > 0){
+        evento.setCupo(evento.getCupo() - 1);
+        }
+        
+        
+       
+        eventoRepositorio.save(evento);
+    }
+    
     
 
     public void validar(String nombre, Date fecha_hora,  Integer cupo, String direccion, String tipo_evento) throws ErrorServicio {
