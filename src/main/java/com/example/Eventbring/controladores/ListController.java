@@ -5,7 +5,11 @@
  */
 package com.example.Eventbring.controladores;
 
+import com.example.Eventbring.entidades.Evento;
+import com.example.Eventbring.entidades.Usuario;
+import com.example.Eventbring.servicios.AsistenciaServicio;
 import com.example.Eventbring.servicios.EventoServicio;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +25,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ListController {
     
     @Autowired
+    private AsistenciaServicio as;
+    
+    @Autowired
     private EventoServicio es;
     
     @GetMapping("/asistir/{id}")
-    public String asistir(@PathVariable String id) {
+    public String asistir(@PathVariable String id, HttpSession session) {
 
         try {
+            
+            Usuario u = (Usuario) session.getAttribute("usuariosession");
+            
+            
+            as.registrar(u.getId(), id);
             
             es.reducirCupo(id);
             
