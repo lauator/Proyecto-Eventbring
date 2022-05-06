@@ -41,6 +41,8 @@ public class Evento{
     
     private String direccion;
     
+    private Boolean alta;
+    
      
 
     public String getId_evento() {
@@ -66,10 +68,7 @@ public class Evento{
     public void setFecha_hora(Date fecha_hora) {
         this.fecha_hora = fecha_hora;
     }
-
-  
-
-    
+ 
 
     public Integer getCupo() {
         return cupo;
@@ -102,6 +101,16 @@ public class Evento{
     public void setTipo_evento(String tipo_evento) {
         this.tipo_evento = tipo_evento;
     }
+
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+    
+    
 
 }
 

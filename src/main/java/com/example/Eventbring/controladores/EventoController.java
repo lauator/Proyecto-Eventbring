@@ -40,8 +40,6 @@ public class EventoController {
     public String guardarEvento (@RequestParam String nombre, @RequestParam Date fecha_hora, @RequestParam Integer cupo, @RequestParam String direccion, @RequestParam String tipo_evento){
        try {
            
-           
-
           es.registrar(nombre, fecha_hora, cupo, direccion, tipo_evento);
            
        } catch (Exception e) {
