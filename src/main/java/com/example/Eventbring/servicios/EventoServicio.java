@@ -6,6 +6,7 @@
 package com.example.Eventbring.servicios;
 
 import com.example.Eventbring.controladores.UsuarioController;
+import com.example.Eventbring.entidades.Asistencia;
 import com.example.Eventbring.entidades.Evento;
 
 
@@ -39,6 +40,9 @@ public class EventoServicio extends HttpServlet {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
+    
+    @Autowired
+    private AsistenciaServicio asistenciaServicio;
 
     
 
@@ -48,17 +52,9 @@ public class EventoServicio extends HttpServlet {
 
         
         Evento evento = new Evento();
-        
-        
-        
-        
-
-
-        
+              
         evento.setFecha_hora(fecha_hora);
-
-         
-        
+  
         evento.setNombre(nombre);
 
         
@@ -106,6 +102,16 @@ public class EventoServicio extends HttpServlet {
         Evento evento = eventoRepositorio.getById(id);
 
         eventoRepositorio.delete(evento);
+    }
+    
+    public void baja(String id) throws ErrorServicio{
+        List<Evento> todosEventos = eventoRepositorio.findAll();
+     
+        List<Asistencia> todosEventosA = asistenciaServicio.listarTodos();
+        
+        
+        
+    
     }
 
     @Transactional(readOnly = true)
