@@ -8,6 +8,7 @@ package com.example.Eventbring.servicios;
 import com.example.Eventbring.controladores.UsuarioController;
 import com.example.Eventbring.entidades.Asistencia;
 import com.example.Eventbring.entidades.Evento;
+import com.example.Eventbring.entidades.Usuario;
 
 
 import com.example.Eventbring.errores.ErrorServicio;
@@ -16,6 +17,7 @@ import com.example.Eventbring.repositorios.EventoRepositorio;
 import com.example.Eventbring.repositorios.UsuarioRepositorio;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 
 import java.util.Date;
@@ -62,7 +64,7 @@ public class EventoServicio extends HttpServlet {
         UserDetails userDetails = null;
         if (principal instanceof UserDetails) {
             userDetails = (UserDetails) principal;
-        }
+        }                
         String userName = userDetails.getUsername();
         
         
@@ -74,6 +76,8 @@ public class EventoServicio extends HttpServlet {
         evento.setDireccion(direccion);
 
         evento.setTipo_evento(tipo_evento);
+        
+        evento.setAlta(Boolean.FALSE);
 
         return eventoRepositorio.save(evento);
     }
@@ -104,15 +108,7 @@ public class EventoServicio extends HttpServlet {
         eventoRepositorio.delete(evento);
     }
     
-    public void baja(String id) throws ErrorServicio{
-        List<Evento> todosEventos = eventoRepositorio.findAll();
-     
-        List<Asistencia> todosEventosA = asistenciaServicio.listarTodos();
-        
-        
-        
     
-    }
 
     @Transactional(readOnly = true)
     public Evento getById(String id) {
@@ -135,9 +131,38 @@ public class EventoServicio extends HttpServlet {
         evento.setCupo(evento.getCupo() - 1);
         }
         
-        
+        evento.setAlta(Boolean.TRUE);
        
         eventoRepositorio.save(evento);
+    }
+    
+    
+    public List<Evento> listarEventosALosQueAsistire() {
+        
+        List<Asistencia> asistencias = asistenciaServicio.listarTodos();
+        
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = null;
+        if (principal instanceof UserDetails) {
+            userDetails = (UserDetails) principal;
+        }
+        
+        String userName = userDetails.getUsername();
+
+        Usuario usuario = usuarioRepositorio.buscarPorUsuario(userName);
+        
+        List<Evento> eventos = new ArrayList();
+        
+        for (Asistencia asistencia : asistencias) {
+            if(asistencia.getParticipantes().equals(usuario.getId())){
+            String id_evento = asistencia.getEventos();
+            Evento e = getById(id_evento);           
+            eventos.add(e);
+            }
+        }
+        
+        return eventos;
     }
     
     

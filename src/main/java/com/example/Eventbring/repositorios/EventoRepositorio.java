@@ -20,6 +20,4 @@ import org.springframework.stereotype.Repository;
 public interface EventoRepositorio extends JpaRepository<Evento, String> {
     
     
-    
-    
 }
