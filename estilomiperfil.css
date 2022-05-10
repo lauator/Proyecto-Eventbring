@@ -8,13 +8,14 @@ body {
     font-family: 'Dongle', sans-serif;
     background: #c31432;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche5.webp);
+    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche13.jpg);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche5.webp);
+    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche13.jpg);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-attachment: fixed;
     position: relative;
+    min-height: 100vh;
 }
 
 
@@ -63,7 +64,8 @@ body {
     width: 100%;
     background: hsla(264, 85%, 13%, 0.886);
     border-radius: 30px;
-    padding: 3% 3%;
+    padding: 5% 5%;
+    margin-bottom: 5%;
 }
 
 .container .ventana {
@@ -163,198 +165,9 @@ body {
 
 
 
-
-
-
-/*---------------------------FIESTAS----------------------------------*/
-.fiestas{
-    margin-top: 3%;
-    background-color: #ffffff;
-    margin-bottom: 3%;
-}
-
-.contenedor {
-    padding: 60px 0;
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-}
-
-.galeria-port{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.img-port{
-    width: 24%;
-    margin-bottom: 10px;
-    height: 220px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1.5);
-}
-
-.img-port > a > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.hover-galeria{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    transform: scale(0);
-    background: hsla(275, 67%, 13%, 0.559);
-    transition: transform .5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.hover-galeria img{
-    width: 120px;
-    display: flex;
-    opacity: 70%;
-    justify-content: center;
-    position: fixed;
-}
-
-.hover-galeria a{
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    font-size: 135%;
-    text-align: center;
-    text-decoration: none;
-}
-
-.hover-galeria a:hover{
-    color: antiquewhite;
-    text-decoration: underline;
-}
-
-.img-port:hover .hover-galeria{
-    transform: scale(1);
-}
-
-
-
-/*-----------------------AGRANDAR-GALERIA-------------------------*/
-.img-port .modal{
-    display: none;
-}
-
-.img-port .modal:target{
-    display: block;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.52);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.img-port .modal h3{
-    font-size: 200%;
-    text-align: center;
-    color: antiquewhite;
-    margin: 15px;
-}
-
-.img-port .agrandar{
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-}
-
-.agrandar a{
-    color: antiquewhite;
-    font-size: 350%;
-    font-weight: 700;
-    text-decoration: none;
-    margin: 0 10px;
-
-}
-
-.agrandar .flecha{
-    display: block;
-    background-color: antiquewhite;
-    width: 3%;
-    height: 11%;
-    margin: 2% ;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-    padding: 5px;
-    color: black;
-    border-radius: 50%;
-    line-height: 25px;
-    justify-content: center;
-    transition: all 300ms;
-    position: relative;
-}
-
-.agrandar .flecha:hover{
-    color: #2d0f57;
-    transform: scale(1.40);
-}
-
-.agrandar a:nth-child(2){
-    margin: 0;
-    height: 100%;
-}
-
-.agrandar img{
-    width: 650px;
-    height: 435px;
-    max-width: 100%;
-    border: 7px solid antiquewhite;
-    box-sizing: border-box;
-}
-
-.cerrar{
-    display: block;
-    background-color: antiquewhite;
-    width: 3%;
-    height: 5.5%;
-    margin: auto;
-    text-align: center;
-    text-decoration: none;
-    font-size: 45px;
-    padding: 5px;
-    color: black;
-    border-radius: 50%;
-    line-height: 35px;
-    align-items: center;
-    justify-content: center;
-    transition: all 300ms;
-    position: relative;
-}
-
-.cerrar:hover{
-    color: #2d0f57;
-    transform: scale(1.40);
-}
-
-
-
-
-
-
 /*----------------------------FOOTER------------------------------*/
-/*--------------FOOTER-------------*/
 .contenedor-footer {
+    background: #ac14c346;
     display: flex;
     width: 100%;
     background-size: cover;
@@ -365,10 +178,8 @@ body {
     overflow: hidden;
     justify-content: space-evenly;
     background: #ac14c346;
-    align-self: flex-end;
     position: absolute;
-    margin-top: auto;
-
+    bottom: 0;
 }
 
 .content-foo {
