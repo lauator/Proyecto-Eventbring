@@ -178,7 +178,7 @@ body {
     overflow: hidden;
     justify-content: space-evenly;
     background: #ac14c346;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
