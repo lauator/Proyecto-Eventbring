@@ -78,6 +78,8 @@ public class EventoServicio extends HttpServlet {
         evento.setTipo_evento(tipo_evento);
         
         evento.setAlta(Boolean.FALSE);
+        
+        evento.setAutorizacion(Boolean.TRUE);
 
         return eventoRepositorio.save(evento);
     }
@@ -164,6 +166,8 @@ public class EventoServicio extends HttpServlet {
         
         return eventos;
     }
+    
+   
     
     
 

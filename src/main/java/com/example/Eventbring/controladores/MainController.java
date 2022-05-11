@@ -7,11 +7,13 @@ package com.example.Eventbring.controladores;
 
 import com.example.Eventbring.entidades.Asistencia;
 import com.example.Eventbring.entidades.Evento;
+import com.example.Eventbring.entidades.Usuario;
 import com.example.Eventbring.servicios.AsistenciaServicio;
 import com.example.Eventbring.servicios.EventoServicio;
 import com.example.Eventbring.servicios.UsuarioServicio;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -64,14 +66,22 @@ public class MainController {
     }
 
     @GetMapping("/listaeventos")
-    public String lista(ModelMap modelo) {
+    public String lista(ModelMap modelo, HttpSession session) {
+        
+        Usuario u = (Usuario) session.getAttribute("usuariosession");
 
         List<Evento> eventoLista = es.listarTodos();
         List<Evento> eventoListaFalse = new ArrayList<>();
 
         for (Evento evento : eventoLista) {
             evento.setAlta(Boolean.FALSE);
+            
+            if(!u.getUsername().equals(evento.getAnfitrion())){
+            evento.setAutorizacion(Boolean.FALSE);
+            }
+            
             eventoListaFalse.add(evento);
+
         }
 
         List<Evento> eventosA = es.listarEventosALosQueAsistire();

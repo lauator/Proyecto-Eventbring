@@ -1,38 +1,30 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Dongle', sans-serif;
-}
 
-.contenedor {
-    padding: 60px 0;
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-}
 
 .titulo {
     color: #2d0f57;
-    font-size: 70px;
+    font-size: 450%;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 7%;
+    margin-top: 3%;
     font-family: 'Raleway', sans-serif;
     text-decoration: overline;
 }
 
+
+
+/*-----------------------------BARRA------------------------*/
 .barra {
     width: 100%;
-    height: 1000px;
     background: #c31432;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche2.jpg);
+    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche16.jpg_large);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche2.jpg);
+    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche16.jpg_large);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-attachment: fixed;
@@ -40,27 +32,29 @@ body {
 }
 
 .barra>nav {
-    text-align: right;
-    padding: 10px 10px 0 0;
+
+    padding: 1% 1% 0 1%;
     background-color: rgba(255, 255, 255, 0.892);
-    font-family: 'Dongle', sans-serif;
+
     overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 
-.barra>nav>div {
+.barra> nav > div {
     text-align: left;
     font-family: 'Dosis', sans-serif;
-    font-size: 45px;
+    font-size: xx-large;
 }
 
-.barra>nav>div>div>a {
+.barra> nav > div > div > a {
     text-align: right;
     color: black;
     font-weight: 300;
     text-decoration: none;
+    margin-right: 3%;
     border: 100px;
-    margin-right: 50px;
-    font-size: 30px;
+    font-size: xx-large;
     float: right;
     font-family: 'Dongle', sans-serif;
 }
@@ -76,22 +70,28 @@ body {
 }
 
 
-/*--------------NOSOTROS-------------*/
-
+/*--------------ESLOGAN-------------*/
 .eslogan {
     display: flex;
-    height: 430px;
+    height: 50%;
     width: 100%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     font-family: 'Dosis', sans-serif;
+    transition: all 300ms;
+    position: relative;
+    margin-top: 5%;
+}
+
+.eslogan:hover{
+    transform: scale(1.2);
 }
 
 .eslogan span {
-    margin-top: 20px;
+    margin-top: 1%;
     width: 100%;
-    font-size: 120px;
+    font-size: 115%;
     font-weight: bold;
     position: relative;
     font-family: 'Dosis', sans-serif;
@@ -99,17 +99,16 @@ body {
     transition: all 300ms ease-in-out;
 }
 
-/*
 .eslogan span::before {
     content: var(--l);
     position: absolute;
     transform: scale(1.1);
     filter: blur(15px);
 }
-*/
 
 .eslogan span:hover {
     filter: contrast(370%);
+    cursor: default;
 }
 
 .eslogan span:nth-child(1) {
@@ -119,6 +118,7 @@ body {
 .eslogan>.frases>h2 {
     margin-top: 10px;
     color: rgb(253, 253, 253) !important;
+    margin-bottom: 20%;
 }
 
 .eslogan>.frases {
@@ -129,6 +129,8 @@ body {
 }
 
 
+
+/*--------------NOSOTROS-------------*/
 .contenedornosotros {
     display: flex;
     justify-content: space-evenly;
@@ -146,21 +148,25 @@ body {
 }
 
 .contenedor-texto {
-    margin: 1em;
-    padding: 1em;
-    margin-top: 50px;
+    margin: 3%;
+    padding: 4%;
+    margin-top: 3%;
 }
 
 .contenedor-texto p {
-    padding: 0 0 30px 15px;
+    padding: 0 0 8% 4%;
     font-weight: 300;
     text-align: justify;
     font-family: 'Dosis', sans-serif;
 }
 
-.logo {
-    margin-right: 8px;
-    height: 30px;
+.contenedor-nosotros .contenedor-texto h3 svg{
+    color: #2d0f57;
+    margin-right: 3%;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+    height: 5%;
 }
 
 
@@ -168,37 +174,57 @@ body {
 
 
 
-/*--------------OPINIONES-------------*/
+/*-----------------------OPINIONES---------------------*/
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.opiniones{
+    margin-top: 5%;
+}
+
 .rowg-0 {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 7%;
 }
 
 .rowg-0 .col-md-4 {
-    background-color: #ab22b39f;
+    background-color: #1a0143ce;
     display: flex;
     width: 46%;
-    height: 200px;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1.5);
+    color: antiquewhite;
+    padding: 3% 1% 3% 1%;
 }
 
 
 .rowg-0 .col-md-4 img {
-    width: 150px;
-    height: 150px;
+    display: block;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     border: 3px solid white;
-    border-radius: 50%;
-    display: block;
+    margin-left: 5%;
+    border-radius: 10%;
+    overflow: hidden;
+    flex-shrink: 2;
 }
 
 .card-title {
-    font-size: 26px;
+    font-size: 215%;
     font-family: 'Dongle', sans-serif;
     color: black;
+    object-fit: contain;
+    border-bottom: 1px solid rgb(15, 0, 28);
+    
 }
 
 
@@ -209,7 +235,6 @@ body {
 .contenedor-footer {
     display: flex;
     width: 100%;
-    height: 250px;
     background: #c31432;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche8.webp);
@@ -220,7 +245,7 @@ body {
     background-attachment: fixed;
     position: relative;
     color: antiquewhite;
-    padding: 60px 0 30px 0;
+    padding: 3% 0 4% 0;
     margin: auto;
     overflow: hidden;
     justify-content: space-evenly;
@@ -228,23 +253,44 @@ body {
 }
 
 .content-foo {
-    display: flex;
-    width: 90%;
+    display: inline-flex;
+    width: 100%;
     justify-content: space-evenly;
     margin: auto;
-    padding-bottom: 50px;
     flex-direction: column;
     align-items: center;
 }
 
-.content-foo h4 {
+.content-foo svg{
+    color: white;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 13.5%;
+    height: 13.5%;
+}
+
+.content-foo h3 {
     border-bottom: 3px solid black;
-    padding-bottom: 9px;
-    margin-bottom: 20px;
+    padding-bottom: 1.5%;
+    margin-bottom: 3%;
     font-family: 'Arial Narrow', sans-serif;
 }
 
 .content-foo a {
     text-decoration: none;
     color: rgb(235, 215, 215);
+    font-size: 130%;
+}
+
+.content-foo:hover{
+    color: #ebd7d7;
+    transform: scale(1.20);
+    line-height: 1px;
+}
+
+.content-foo a:hover{
+    color: #ebd7d7;
+    text-decoration: underline;
+    line-height: 1px;
 }

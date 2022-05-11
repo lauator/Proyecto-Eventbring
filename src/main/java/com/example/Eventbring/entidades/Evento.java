@@ -45,6 +45,8 @@ public class Evento{
     
     private Boolean alta;
     
+    private Boolean autorizacion;
+    
      
 
     public String getId_evento() {
@@ -110,6 +112,14 @@ public class Evento{
 
     public void setAlta(Boolean alta) {
         this.alta = alta;
+    }
+
+    public Boolean getAutorizacion() {
+        return autorizacion;
+    }
+
+    public void setAutorizacion(Boolean autorizacion) {
+        this.autorizacion = autorizacion;
     }
     
     

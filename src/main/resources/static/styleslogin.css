@@ -1,60 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
-/*--------------BARRA-------------*/
-.barra {
-    width: 100%;
-    height: 100px;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-}
-
-.barra>nav {
-    text-align: right;
-    padding: 5px 0px 0 0;
-    background-color: rgba(255, 255, 255, 0.892);
-    font-family: 'Dongle', sans-serif;
-    overflow: hidden;
-}
-
-.barra>nav>div {
-    text-align: left;
-    font-family: 'Dosis', sans-serif;
-    font-size: 30px;
-}
-
-.barra>nav>div>div>a {
-    text-align: right;
-    color: black;
-    font-weight: 300;
-    text-decoration: none;
-    border: 100px;
-    margin-right: 50px;
-    font-size: 30px;
-    float: right;
-    font-family: 'Dongle', sans-serif;
-}
-
-.barra>nav>div>div>a:hover {
-    text-decoration: underline;
-}
-
-img{
-    width: 50px;
-    height: 50px;
-    margin-left: 30px;
-    margin-top: 0px;
-}
-
-/*--------------LOGIN-------------*/
-/*--------------DATOS-------------*/
 body {
-    font-family: 'Dongle', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -63,58 +13,104 @@ body {
     background-attachment: fixed;
     position: relative;
     width: 100%;
-    height: 100%;
-    position: relative;
     min-height: 100vh;
 }
 
-.container .candado {
-    width: 100px;
-    height: 100px;
-    margin-left: 305px;
-    margin-top: 0px;
+/*--------------BARRA-------------*/
+.barra {
+    width: 100%;
 }
+
+.barra>nav {
+    padding: 1% 1% 0 1%;
+    background-color: rgba(255, 255, 255, 0.892);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    text-align: right;
+    font-family: 'Dongle', sans-serif;
+}
+
+.barra>nav>div {
+    text-align: left;
+    font-family: 'Dosis', sans-serif;
+    font-size: xx-large;
+}
+
+.barra>nav>div>div>a {
+    text-align: right;
+    color: black;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 3%;
+    border: 100px;
+    font-size: xx-large;
+    float: right;
+    font-family: 'Dongle', sans-serif;
+}
+
+.barra>nav>div>div>a:hover {
+    text-decoration: underline;
+}
+
+
+
+/*--------------LOGIN-------------*/
+/*--------------DATOS-------------*/
 .container {
-    width: 800px;
-    min-height: 500px;
-    background: #2d0f57;
-    border-radius: 30px;
-    padding: 80px 50px;
-    margin: 250px;
-    margin-top: 20px;
+    width: 61%;
+    min-height: 70%;
+    background: hsla(265, 85%, 13%, 0.939);
+    border-radius: 4.2%;
+    padding: 6% 2% 0.5% 2%;
+    margin: 19%;
+    margin-top: 2%;
+    box-sizing: border-box;
+}
+
+.container .candado {
+    width: 19%;
+    height: 14%;
+    margin-left: 43%;
+    margin-top: 0%;
 }
 
 .container .iniciar-sesion {
+    font-family: 'Libre Bodoni', serif;
     color: rgb(250, 249, 249);
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: 500;
+    font-size: xx-large;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0.5%;
     display: block;
     text-transform: capitalize;
 }
 
 .container .login-email {
-    padding: 20px 20px;
-    margin: 10px;
-    margin-left: 10px;
+    padding: 2.8% 2.8%;
+    margin: 1.9%;
+    margin-left: 1.9%;
     justify-content: space-evenly;
 }
+
 .container .login-email .input-group {
     width: 100%;
     height: 50px;
     margin-bottom: 25px;
+    justify-content: center;
 }
 
 .container .login-email .input-group input {
+    font-weight: 500;
     width: 100%;
     height: 100%;
     border: 2px solid #e7e7e7;
-    padding: 15px 20px;
-    font-size: 1rem;
+    padding: 2.8% 3%;
+    font-size: large;
     border-radius: 30px;
     background: #5e3f8adc;
     outline: none;
+    
 }
 
 /*--------------BOTONES-------------*/
@@ -122,55 +118,72 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
     text-transform: uppercase;
     border: none;
     background: #a29bfe;
     border-radius: 30px;
-    font-size: 1.2rem;
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: .3s ease all;
+    width: 90%;
+    padding: 1% 2%;
+    text-align: center;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.container .login-email .input-group .boton-ingresar:hover {
+    background: #7f7ac9;
+    transform: scale(1.03);
 }
 
 .container .login-email .input-group .boton-ingresar:active {
-background: #f8fc31;
+    background: #f8fc31;
 }
 
 .barra .container .login-email .input-group .bregistro {
     color: gray;
-    padding: 0px 110px;
-    font-size: 1rem;
-    text-align: right;
+    width: 40%;
+    font-size: large;
+    text-align: center;
     cursor: pointer;
-
 }
 
 .barra .container .login-email .input-group .bregistro:hover {
-color: #dcdf17d5;
+    color: #dcdf17d5;
 }
 
 .container .login-email .input-group .bcontraseña {
-text-align: center;
-color: gray;
+    text-align: center;
+    color: gray;
+    width: 40%;
 }
+
+.barra .container .login-email .input-group .bcontraseña:hover {
+    color: #dcdf17d5;
+}
+
 
 /*--------------REGISTRARSE-------------*/
 
 .registropersonas {
-    width: 800px;
-    min-height: 500px;
-    background: #2d0f57;
-    border-radius: 30px;
-    padding: 80px 50px;
-    margin: 250px;
-    margin-top: 20px;
+    width: 60%;
+    min-height: 50%;
+    background: hsla(265, 85%, 13%, 0.939);
+    border-radius: 4.2%;
+    padding: 6% 2% 0.5% 2%;
+    margin: 10%;
+    margin-left: 20%;
+    margin-top: 2%;
+    box-sizing: border-box;
 }
 
+
 .registropersonas .registrate-txt {
+    font-family: 'Libre Bodoni', serif;
     color: rgb(255, 255, 255);
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 200%;
     text-align: center;
     display: block;
     text-transform: capitalize;
@@ -179,72 +192,95 @@ color: gray;
 
 .registropersonas .subregistro {
     color: rgba(255, 255, 255, 0.733);
-    font-size: 0.8rem;
+    font-size: 100%;
+    padding: 0% 0% 4%;
     text-align: center;
     display: block;
     margin: auto;
 }
 
-.registropersonas .datos-registro .repetir-passwd {
-    color: rgba(255, 255, 255, 0.733);
-    font-weight: 00;
-    font-size: 1rem;
-    text-align: left;
-    display: block;
-    margin: 10px 10px;
-    text-decoration: underline;
-}
-
 .registropersonas .datos-registro {
-    padding: 20px 20px;
-    margin: 10px;
-    margin-left: 10px;
+    padding: 2% 2%;
+    margin: 1%;
+    margin-left: 1%;
     justify-content: space-evenly;
 }
+
 .registropersonas .datos-registro .input-group {
     width: 100%;
-    height: 50px;
-    margin-bottom: 20px;
+    height: 5%;
+    margin-bottom: 2%;
 }
 
 .registropersonas .input-group input {
     width: 100%;
     height: 100%;
+    padding: 1.5% 1.5%;
+    font-size: large;
+    font-weight: 500;
     border: 2px solid #e7e7e7;
-    padding: 15px 20px;
-    font-size: 1rem;
-    border-radius: 30px;
+    border-radius: 35px;
     background: #5e3f8adc;
     outline: none;
 }
 
-.registropersonas .datos-registro .input-group-na input{
-    width: 49.5%;
+.registropersonas .datos-registro .input-group-na{
+    width: 100%;
+    height: 100%;
+    font-size: large;
+    justify-content: space-between;
+    margin-left: 1.5%;
+}
+
+.registropersonas .datos-registro .input-group-na input {
+    width: 48%;
     height: 100%;
     border: 2px solid #e7e7e7;
     background: #5e3f8adc;
-    padding: 15px 20px;
-    font-size: 1rem;
-    border-radius: 30px;
-    margin-bottom: 20px;
+    padding: 1.5% 1.5%;
+    font-size: large;
+    border-radius: 35px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2%;
     outline: none;
+    font-weight: 500;
 }
+
+.registropersonas .datos-registro .repetir-passwd {
+    color: rgba(255, 255, 255, 0.733);
+    font-weight: 00;
+    font-size: 100%;
+    text-align: left;
+    display: block;
+    margin: 1% 1%;
+    text-decoration: wavy;
+}
+
+
+
+
 
 /*--------------BOTON-------------*/
 .registropersonas .input-group .botonr {
     display: block;
     width: 100%;
-    padding: 15px 20px;
+    padding: 2% 4%;
     text-align: center;
     border: none;
     background: #a29bfe;
     outline: none;
     border-radius: 30px;
-    font-size: 1.2rem;
+    font-size: large;
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: .3s;
     text-transform: uppercase;
+}
+
+.registropersonas .input-group .botonr:hover{
+    background: #7f7ac9;
+    transform: scale(1.03);
 }
 
 .registropersonas .input-group .botonr:active {
@@ -253,12 +289,76 @@ color: gray;
 
 .registropersonas .datos-registro .input-group .atrasr {
     color: gray;
-    padding: 0px 590px;
-    font-size: 1rem;
-    text-align: right;
+    font-size: large;
+}
+
+#atras {
+    color: gray;
+    justify-content: end;
+    font-size: large;
     cursor: pointer;
 }
 
 .registropersonas .datos-registro .input-group .atrasr:hover {
     color: #dcdf17d5;
+}
+
+/*--------------FOOTER-------------*/
+.contenedor-footer {
+    display: flex;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    color: antiquewhite;
+    padding: 3% 0 4% 0;
+    margin: auto;
+    overflow: hidden;
+    justify-content: space-evenly;
+    background: #ac14c346;
+    align-self: flex-end;
+    position: absolute;
+    margin-top: auto;
+}
+
+.content-foo {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-foo svg {
+    color: white;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 13.5%;
+    height: 13.5%;
+}
+
+.content-foo h3 {
+    border-bottom: 3px solid black;
+    padding-bottom: 1.5%;
+    margin-bottom: 3%;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.content-foo a {
+    text-decoration: none;
+    color: rgb(235, 215, 215);
+    font-size: 130%;
+}
+
+.content-foo:hover {
+    color: #ebd7d7;
+    transform: scale(1.20);
+    line-height: 1px;
+}
+
+.content-foo a:hover {
+    color: #ebd7d7;
+    text-decoration: underline;
+    line-height: 1px;
 }
