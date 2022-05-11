@@ -80,4 +80,27 @@ public class ListController {
 
     }
     
+    @GetMapping("/desasistir/{id}")
+    public String desasistir(@PathVariable String id) {
+
+        try {
+            
+            List<Asistencia> asistencias = as.listarTodos();
+            
+            for (Asistencia asistencia : asistencias) {
+                if(asistencia.getEventos().equals(id)){
+                    as.borrar(asistencia.getId());
+                }
+                
+            }
+            
+            es.aumentarCupo(id);
+            
+            return "redirect:/listaasistencias";
+        } catch (Exception e) {
+            return "redirect:/listaasistencias";
+        }
+
+    }
+    
 }
