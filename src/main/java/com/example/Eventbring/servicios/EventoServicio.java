@@ -138,6 +138,20 @@ public class EventoServicio extends HttpServlet {
         eventoRepositorio.save(evento);
     }
     
+    @Transactional
+    public void aumentarCupo(String id) throws ErrorServicio {
+
+        Evento evento = eventoRepositorio.getById(id);
+
+        
+        evento.setCupo(evento.getCupo() + 1);
+        
+    
+        eventoRepositorio.save(evento);
+    }
+    
+    
+    
     
     public List<Evento> listarEventosALosQueAsistire() {
         
