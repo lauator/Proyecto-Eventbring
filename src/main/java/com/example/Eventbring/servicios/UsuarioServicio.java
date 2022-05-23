@@ -6,51 +6,79 @@
 package com.example.Eventbring.servicios;
 
 import com.example.Eventbring.entidades.Usuario;
+import com.example.Eventbring.enums.Role;
 import com.example.Eventbring.errores.ErrorServicio;
 import com.example.Eventbring.repositorios.UsuarioRepositorio;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  *
  * @author Irina
  */
 @Service
-public class UsuarioServicio {
+public class UsuarioServicio implements UserDetailsService {
       @Autowired
     private UsuarioRepositorio usuarioRepositorio; 
     
     @Transactional
-    public Usuario registrar(String nombreUsuario, String nombre, String apellido, String mail, String clave, String ciudad, Integer telefono) throws ErrorServicio {
-        validar(nombreUsuario, nombre, apellido, mail, clave, ciudad, telefono);
+    public Usuario registrar(String username, String nombre, String apellido, String email, String clave, String ciudad, Integer telefono) throws ErrorServicio {
+        validar(username, nombre, apellido, email, clave, ciudad, telefono);
 
         Usuario usuario = new Usuario();
 
         usuario.setNombre(nombre);
-        usuario.setNombreusuario(nombreUsuario);
+        usuario.setUsername(username);
         usuario.setApellido(apellido);
-        usuario.setMail(mail);
-        usuario.setClave(clave);
+        usuario.setMail(email);
+        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();     
+        usuario.setClave(encoder.encode(clave));
+        
+        
         usuario.setCiudad(ciudad);
         usuario.setTelefono(telefono);
+        
+        usuario.setRole(Role.USER);
 
         return usuarioRepositorio.save(usuario);
     }
 
     @Transactional
-    public Usuario modificar(String id, String nombreUsuario, String nombre, String apellido, String mail, String clave, String ciudad, Integer telefono) throws ErrorServicio {
-        validar(nombreUsuario, nombre, apellido, mail, clave, ciudad, telefono);
+    public Usuario modificar(String id, String username, String nombre, String apellido, String email, String clave, String ciudad, Integer telefono) throws ErrorServicio {
+        validar(username, nombre, apellido, email, clave, ciudad, telefono);
 
         Usuario usuario = usuarioRepositorio.getById(id);
+        
+        if (usuario==null) {
+            throw new ErrorServicio("No existe un usuario con esa ID");
+        }
 
         usuario.setNombre(nombre);
-        usuario.setNombreusuario(nombreUsuario);
+        usuario.setUsername(username);
         usuario.setApellido(apellido);
-        usuario.setMail(mail);
-        usuario.setClave(clave);
+        usuario.setMail(email);
+        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        
+        usuario.setClave(encoder.encode(clave));
         usuario.setCiudad(ciudad);
+        
+        
         usuario.setTelefono(telefono);
 
         return usuarioRepositorio.save(usuario);
@@ -79,10 +107,16 @@ public class UsuarioServicio {
     public List<Usuario> listarTodos() {
         return usuarioRepositorio.findAll();
     }
+    
+    
 
-    public void validar(String nombreUsuario, String nombre, String apellido, String mail, String clave, String ciudad, Integer telefono) throws ErrorServicio {
-        if (nombreUsuario.isEmpty() || nombreUsuario == null) {
+    public void validar(String username, String nombre, String apellido, String email, String clave, String ciudad, Integer telefono) throws ErrorServicio {
+        if (username.isEmpty() || username == null) {
             throw new ErrorServicio("El usuario no puede estar vacio");
+        }
+        
+        if (usuarioRepositorio.buscarPorUsuario(username)!= null) {
+            throw new ErrorServicio("Ya existe un usuario con ese nombre");
         }
         
         if (nombre.isEmpty() || nombre == null) {
@@ -93,10 +127,15 @@ public class UsuarioServicio {
             throw new ErrorServicio("El apellido no puede estar vacio");
         }
         
-        if (mail.isEmpty() || mail == null) {
+        if (email.isEmpty() || email == null) {
             throw new ErrorServicio("El mail no puede estar vacio");
         }
         
+        if (usuarioRepositorio.buscarPorEmail(email)!= null) {
+            throw new ErrorServicio("Ya existe un usuario con ese email");
+        }
+        
+           
         if (clave.isEmpty() || clave == null) {
             throw new ErrorServicio("La clave no puede estar vacia");
         }
@@ -109,4 +148,26 @@ public class UsuarioServicio {
             throw new ErrorServicio("El telefono no puede estar vacio");
         }
     }  
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepositorio.buscarPorUsuario(username);
+        if (usuario != null) {
+            List<GrantedAuthority> permisos = new ArrayList<>();
+
+            GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_" + usuario.getRole());
+            permisos.add(p1);
+
+            
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("usuariosession", usuario);
+
+            User user = new User(usuario.getUsername(), usuario.getClave(), permisos);
+            return user;
+
+        } else {
+            return null;
+        }
+    }
 }

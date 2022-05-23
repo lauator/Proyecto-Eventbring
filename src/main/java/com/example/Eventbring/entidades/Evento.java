@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -29,15 +31,23 @@ public class Evento{
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id_evento;
     private String nombre;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_hora;
-    private Integer cantParticipantes;
+    private Integer cupo;
+    private String tipo_evento;
     
-    @OneToOne
-    private Usuario anfitrion;
     
-    @OneToOne
-    private Local local;
+    private String anfitrion;
     
+    
+    private String direccion;
+    
+    private Boolean alta;
+    
+    private Boolean autorizacion;
+    
+     
 
     public String getId_evento() {
         return id_evento;
@@ -62,30 +72,65 @@ public class Evento{
     public void setFecha_hora(Date fecha_hora) {
         this.fecha_hora = fecha_hora;
     }
+ 
 
-    public Integer getCantParticipantes() {
-        return cantParticipantes;
+    public Integer getCupo() {
+        return cupo;
     }
 
-    public void setCantParticipantes(Integer cantParticipantes) {
-        this.cantParticipantes = cantParticipantes;
+    public void setCupo(Integer cupo) {
+        this.cupo = cupo;
     }
 
-    public Usuario getAnfitrion() {
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getAnfitrion() {
         return anfitrion;
     }
 
-    public void setAnfitrion(Usuario anfitrion) {
+    public void setAnfitrion(String anfitrion) {
         this.anfitrion = anfitrion;
     }
 
-    public Local getLocal() {
-        return local;
+    public String getTipo_evento() {
+        return tipo_evento;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
+    public void setTipo_evento(String tipo_evento) {
+        this.tipo_evento = tipo_evento;
     }
+
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+
+    public Boolean getAutorizacion() {
+        return autorizacion;
+    }
+
+    public void setAutorizacion(Boolean autorizacion) {
+        this.autorizacion = autorizacion;
+    }
+    
+    
+    
+    
+
+}
+
+    
+
+    
     
      
     
@@ -97,4 +142,4 @@ public class Evento{
     
 
 
-}
+

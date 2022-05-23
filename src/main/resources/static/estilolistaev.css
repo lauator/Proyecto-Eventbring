@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dongle', sans-serif;
+    width: 100%;
+    background: #c31432;
+    
+    background: -webkit-linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche2.jpg);
+    
+    background: linear-gradient(to right, hsla(275, 67%, 13%, 0.559), hsla(350, 81%, 42%, 0.569)), url(imagenes/boliche2.jpg);
+    
+    background-attachment: fixed;
+    position: relative;
+    padding-bottom: 3% 0 4% 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+/*-------------------------------BARRA-------------------------*/
+.barra {
+    width: 100%;
+}
+
+.barra>nav {
+    width: 100%;
+    text-align: right;
+    padding: 1% 1% 0 1%;
+    background-color: rgba(255, 255, 255, 0.892);
+    font-family: 'Dongle', sans-serif;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.barra>nav>div {
+    text-align: left;
+    font-family: 'Dosis', sans-serif;
+    font-size: xx-large;
+}
+
+.barra>nav>div>div>a {
+    text-align: right ;
+    color: black ;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 3%;
+    border: 100px;
+    font-size: xx-large;
+    float: right;
+    font-family: 'Dongle', sans-serif;
+}
+
+.barra>nav>div>div>a:hover {
+    text-decoration: underline;
+}
+
+
+
+/*--------------------------TABLA LISTADO--------------------------*/
+.conten-tabla{
+    width: 80%;
+    background: hsla(264, 85%, 13%, 0.886);
+    border-radius: 30px;
+    padding: 3% 4%;
+    margin: 5%;
+    margin-left: 10%;
+    margin-top: 1%;
+    border-spacing: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    text-align: center;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    background-color: hsla(264, 85%, 13%, 0.886);
+    border-collapse: collapse;
+    text-align: center;
+
+}
+tr{
+    color: black;
+    background-color: rgba(221, 221, 221, 0.803);
+}
+
+th{
+    padding: 3%;
+    font-size: large;
+    border-collapse: collapse;
+}
+
+td{
+    padding: 2%;
+    font-size: medium;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+td > a >svg{
+    width: 30px;
+    color: #a29bfe;
+}
+
+td > a >svg:hover{
+    width: 30px;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td{
+    /*background-color: hsla(265, 79%, 20%, 0.886);*/
+    color: white;
+}
+
+/*--------------BOTON-------------*/
+.input-group a{
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 1% 2%;
+    margin: 6% 0% 4% 0%;
+    text-align: center;
+    border: none;
+    background: #a29bfe;
+    outline: none;
+    border-radius: 30px;
+    font-size: 120%;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: .3s;
+    text-transform: uppercase;
+}
+
+.input-group a:hover{
+    background: #7f7ac9;
+    transform: scale(1.03);
+    color: black;
+    
+}
+
+.input-group a:active {
+    background: #f8fc31;
+}
